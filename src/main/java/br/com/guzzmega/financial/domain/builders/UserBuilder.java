@@ -3,47 +3,48 @@ package br.com.guzzmega.financial.domain.builders;
 import br.com.guzzmega.financial.domain.User;
 
 public class UserBuilder {
-
 	private Long id;
 	private String name;
 	private String email;
 	private String password;
 
-	public User create(){
-		return new User(this.getId(), this.getName(), this.getEmail(), this.getPassword());
-	}
+	private UserBuilder(){}
 
-	public static UserBuilder getOneUser(){
+	public static UserBuilder getOneUser() {
 		UserBuilder builder = new UserBuilder();
 		initializeDefaultValues(builder);
 		return builder;
 	}
 
-	private static void initializeDefaultValues(UserBuilder builder){
+	public static void initializeDefaultValues(UserBuilder builder) {
 		builder.setId(1L);
 		builder.setName("João");
 		builder.setEmail("joao@gmail.com");
 		builder.setPassword("joao123");
 	}
 
-	public UserBuilder withId(Long param){
+	public UserBuilder withId(Long param) {
 		this.setId(param);
 		return this;
 	}
 
-	public UserBuilder withName(String param){
+	public UserBuilder withName(String param) {
 		this.setName(param);
 		return this;
 	}
 
-	public UserBuilder withEmail(String param){
+	public UserBuilder withEmail(String param) {
 		this.setEmail(param);
 		return this;
 	}
 
-	public UserBuilder withPassword(String param){
+	public UserBuilder withPassword(String param) {
 		this.setPassword(param);
 		return this;
+	}
+
+	public User create() {
+		return new User(getId(), getName(), getEmail(), getPassword());
 	}
 
 	public Long getId(){

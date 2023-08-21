@@ -11,6 +11,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -119,24 +121,15 @@ public class CalculadoraTest {
 		assertEquals("/ by zero", exception.getMessage());
 	}
 
-	//	@ParameterizedTest
-	//	@ValueSource(strings = {"Teste1", "Teste2", "Teste 3"})
-	//	public void testStrings(String param) {
-	//		System.out.println(++contador);
-	//		System.out.println(param);
-	//		assertNotNull(param);
-	//	}
-	//
-	//	@ParameterizedTest
-	//	@CsvSource(value = {
-	//			"6, 2, 3",
-	//			"6, -2, -3",
-	//			"10, 3, 3.3333332538604736",
-	//			"0, 2, 0"
-	//	})
-	//	public void deveDividirCorretamente(int num, int den, double res) {
-	//		System.out.println(++contador);
-	//		float resultado = calc.dividir(num, den);
-	//		Assertions.assertEquals(res, resultado);
-	//	}
+	@ParameterizedTest
+	@CsvSource(value = {
+		" 6;  2;  3",
+		" 6; -2; -3",
+		"10;  3;  3.3333332538604736",
+		" 0;  2;  0"
+	}, delimiter = ';')
+	public void deveDividirCorretamente(int num, int den, float res){
+		float resultado = calc.dividir(num, den);
+		assertEquals(res,resultado);
+	}
 }

@@ -1,8 +1,8 @@
 package br.com.guzzmega.financial.domain;
 
+import br.com.guzzmega.financial.domain.builders.UserBuilder;
 import br.com.guzzmega.financial.exception.ValidationException;
 import org.junit.jupiter.api.*;
-
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,13 +19,10 @@ public class UserTest {
 		System.out.println("<--  ENDING  -->");
 	}
 
-	//	@Autowired
-	//	private User user;
-
 	@Test
 	@DisplayName("Must Create a Valid User")
 	public void mustCreateValidUser(){
-		User user = new User(1L, "João", "joao@gmail.com", "joao123");
+		User user = UserBuilder.getOneUser().create();
 
 		assertAll(
 				"Create Valid User",
@@ -40,7 +37,7 @@ public class UserTest {
 	@DisplayName("Must Reject a User Without Name")
 	public void mustRejectUserWithoutName(){
 		ValidationException exception = assertThrows(ValidationException.class, () -> {
-			new User(1L, null, "joao@gmail.com", "joao123");
+			UserBuilder.getOneUser().withName(null).create();
 		});
 		assertEquals("Name is mandatory", exception.getMessage());
 	}
@@ -49,7 +46,7 @@ public class UserTest {
 	@DisplayName("Must Reject a User Without Email")
 	public void mustRejectUserWithoutEmail(){
 		ValidationException exception = assertThrows(ValidationException.class, () -> {
-			new User(1L, "João", null, "joao123");
+			UserBuilder.getOneUser().withEmail(null).create();
 		});
 		assertEquals("Email is mandatory", exception.getMessage());
 	}
@@ -58,8 +55,9 @@ public class UserTest {
 	@DisplayName("Must Reject a User Without Password")
 	public void mustRejectUserWithoutPassword(){
 		ValidationException exception = assertThrows(ValidationException.class, () -> {
-			new User(1L, "João", "joao@gmail.com", null);
+			UserBuilder.getOneUser().withPassword(null).create();
 		});
 		assertEquals("Password is mandatory", exception.getMessage());
 	}
+
 }
