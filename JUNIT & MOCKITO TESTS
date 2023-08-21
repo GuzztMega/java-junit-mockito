@@ -1,0 +1,35 @@
+JUNIT & MOCKITO TESTS
+
++ CONCEPTS {
+
+	FIRST {
+		Fast              (Velocidade de Reprodução)
+		Isolated          (Independente de Outros testes)
+		Repeatable        (Consistente em seus resultados)
+		Self-Validated    (Condições para atendimento de facil compreensão)
+		Timely / Thorough (Tempo Certo e Abrangencia)
+
+		https://hackernoon.com/test-f-i-r-s-t-65e42f3adc17
+	}
+
+	Classes de Equivalencia e Análise de Valores Limites
+
+	. assertEqual() -> Verifica valor, conteudo.
+	. assertSame()	-> Verifica referencia, objeto.
+
+}
+		
+
++ ONION ARCHITECTURE {
+
+	Domain > Service > Infra > Application ;
+	.      .         .	     .             .
+	Core -------------------->             .
+	.      .         . 	     .             .
+	UnitTest -------->       .             .
+	IntegratedTest ---------->             .
+	FunctionalTest ------------------------>
+
+
+}
+

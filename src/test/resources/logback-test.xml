@@ -1,0 +1,8 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <!-- Configuração para evitar a impressão de mensagens de inicialização -->
+    <logger name="br.com.guzzmega" level="ERROR"/>
+    <logger name="org.springframework.boot" level="ERROR"/>
+    <logger name="org.springframework.test.context" level="ERROR"/>
+</configuration>
