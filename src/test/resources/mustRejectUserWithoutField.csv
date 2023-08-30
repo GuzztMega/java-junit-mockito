@@ -1,0 +1,4 @@
+ID; NAME; EMAIL; PASSWORD
+1; NULL; joao@gmail.com; joao123; Name is mandatory
+1; João; NULL; joao123; Email is mandatory
+1; João; joao@gmail.com; NULL; Password is mandatory

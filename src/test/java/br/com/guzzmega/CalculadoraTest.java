@@ -129,6 +129,7 @@ public class CalculadoraTest {
 		" 0;  2;  0"
 	}, delimiter = ';')
 	public void deveDividirCorretamente(int num, int den, float res){
+		System.out.println(++contador);
 		float resultado = calc.dividir(num, den);
 		assertEquals(res,resultado);
 	}

@@ -134,6 +134,6 @@ public class BuilderMaster {
 
 	public static void main(String[] args) {
 		BuilderMaster master = new BuilderMaster();
-		master.gerarCodigoClasse(null); // inserir entidade
+		master.gerarCodigoClasse(null); // inserir classe
 	}
 }

@@ -8,7 +8,9 @@ public class UserBuilder {
 	private String email;
 	private String password;
 
-	private UserBuilder(){}
+	public User build() {
+		return new User(getId(), getName(), getEmail(), getPassword());
+	}
 
 	public static UserBuilder getOneUser() {
 		UserBuilder builder = new UserBuilder();
@@ -16,7 +18,7 @@ public class UserBuilder {
 		return builder;
 	}
 
-	public static void initializeDefaultValues(UserBuilder builder) {
+	private static void initializeDefaultValues(UserBuilder builder) {
 		builder.setId(1L);
 		builder.setName("João");
 		builder.setEmail("joao@gmail.com");
@@ -41,10 +43,6 @@ public class UserBuilder {
 	public UserBuilder withPassword(String param) {
 		this.setPassword(param);
 		return this;
-	}
-
-	public User create() {
-		return new User(getId(), getName(), getEmail(), getPassword());
 	}
 
 	public Long getId(){
