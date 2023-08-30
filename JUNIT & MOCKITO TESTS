@@ -30,6 +30,15 @@ JUNIT & MOCKITO TESTS
 	IntegratedTest ---------->             .
 	FunctionalTest ------------------------>
 
-
 }
 
++ TDD - Test Driven Development {
+
+	RED -> GREEN -> REFACTOR [re-do]
+
+	1 Desenvolve cenario de teste
+	2 Desenvolve código
+	3 Realiza teste
+	4 Refatora...
+
+}

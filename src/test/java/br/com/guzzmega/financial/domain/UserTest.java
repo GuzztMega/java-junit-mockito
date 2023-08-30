@@ -25,8 +25,8 @@ public class UserTest {
 	@Test
 	@DisplayName("Must Create a Valid User")
 	public void mustCreateValidUser(){
-		User user = UserBuilder.getOneUser().build();
 
+		User user = UserBuilder.getOneUser().build();
 		assertAll(
 				"Create Valid User",
 				() -> assertEquals(1L, (double) user.getId()),
@@ -50,6 +50,7 @@ public class UserTest {
 //			"1; João; joao@gmail.com; NULL; Password is mandatory"
 //	}, useHeadersInDisplayName = true, delimiter = ';', nullValues = "NULL")
 	public void mustRejectUserWithoutField(Long id, String name, String email, String pass, String message){
+
 		ValidationException exception = assertThrows(ValidationException.class, () -> {
 			UserBuilder.getOneUser().withId(id).withName(name).withEmail(email).withPassword(pass).build();
 		});
