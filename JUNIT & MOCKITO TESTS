@@ -12,6 +12,8 @@ JUNIT & MOCKITO TESTS
 		https://hackernoon.com/test-f-i-r-s-t-65e42f3adc17
 	}
 
+	@ParameterizedTest no Junit 4 só é possível na classe, não no método Junit 5.
+
 	Classes de Equivalencia e Análise de Valores Limites
 
 	. assertEqual() -> Verifica valor, conteudo.

@@ -5,7 +5,6 @@ import br.com.guzzmega.financial.exception.ValidationException;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,7 +31,7 @@ public class UserTest {
 				() -> assertEquals(1L, (double) user.getId()),
 				() -> assertEquals("João", user.getName()),
 				() -> assertEquals("joao@gmail.com", user.getEmail()),
-				() -> assertEquals("joao123", user.getPassword())
+				() -> assertEquals(	"joao123", user.getPassword())
 		);
 	}
 

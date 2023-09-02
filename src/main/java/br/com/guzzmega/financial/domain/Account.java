@@ -1,5 +1,7 @@
 package br.com.guzzmega.financial.domain;
 
+import br.com.guzzmega.financial.exception.ValidationException;
+
 public class Account {
 
     private Long id;
@@ -7,9 +9,20 @@ public class Account {
     private User user;
 
     public Account(Long id, String name, User user) {
+        validate(name, user);
+
         this.id = id;
         this.name = name;
         this.user = user;
+    }
+
+    private void validate(String name, User user){
+        if(name == null){
+            throw new ValidationException("Name is mandatory");
+        }
+        if(user == null){
+            throw new ValidationException("User is mandatory");
+        }
     }
 
     public Long getId() {
