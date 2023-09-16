@@ -17,7 +17,6 @@ public class AccountTest {
     @Test
     @DisplayName("Must Create a Valid Account")
     public void mustCreateValidAccount(){
-
         Account account = AccountBuilder.getOneAccount().build();
         Assertions.assertAll(
                 "Create a Valid Account",
