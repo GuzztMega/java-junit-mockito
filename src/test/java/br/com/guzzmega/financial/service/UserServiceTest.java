@@ -1,21 +1,24 @@
 package br.com.guzzmega.financial.service;
 
 import br.com.guzzmega.financial.domain.User;
-import br.com.guzzmega.financial.domain.builders.UserBuilder;
-import br.com.guzzmega.financial.repository.UserDummyRepository;
+import br.com.guzzmega.financial.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import java.util.Optional;
 
 public class UserServiceTest {
 
-    private final UserService service = new UserService(new UserDummyRepository());
+    private UserService service;
 
     @Test
-    public void mustSaveUser(){
+    public void mustReturnUserByEmail(){
 
-        User user = UserBuilder.getOneUser().withId(null).withEmail("some-email@gmail.com").build();
-        User savedUser = service.save(user);
+        UserRepository repository = Mockito.mock(UserRepository.class);
+        service = new UserService(repository);
 
-        Assertions.assertNotNull(savedUser.getId());
+        Optional<User> user = service.findUserByEmail("joao@gmail.com");
+        Assertions.assertTrue(user.isEmpty());
     }
 }
