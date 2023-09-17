@@ -21,7 +21,7 @@ public class AccountBuilder {
 
     private static void initializeDefaultValues(AccountBuilder builder) {
         builder.setId(1L);
-        builder.setName("account-xyz");
+        builder.setName("account-abc");
         builder.setUser(UserBuilder.getOneUser().build());
     }
 
