@@ -2,6 +2,8 @@ package br.com.guzzmega.financial.domain;
 
 import br.com.guzzmega.financial.exception.ValidationException;
 
+import java.util.Objects;
+
 public class Account {
 
     private Long id;
@@ -23,6 +25,25 @@ public class Account {
         if(user == null){
             throw new ValidationException("User is mandatory");
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Account account)) return false;
+        return Objects.equals(getId(), account.getId()) &&
+                Objects.equals(getName(), account.getName()) &&
+                 Objects.equals(getUser(), account.getUser());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName(), getUser());
+    }
+
+    @Override
+    public String toString() {
+        return "Account { id=" + id + ", name='" + name + "', user='" + user + "' }";
     }
 
     public Long getId() {
