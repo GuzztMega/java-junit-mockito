@@ -23,7 +23,7 @@ public class UserServiceTest {
     @Mock
     private UserRepository userRepository;
 
-    /**
+    /*
      // Redundant because @ExtendWith(MockitoExtension.class)
      @BeforeEach
      public void setup(){
@@ -36,14 +36,14 @@ public class UserServiceTest {
      public void tearDown(){
          Mockito.verifyNoMoreInteractions(userRepository);
      }
-    **/
+    */
 
     @Test
     public void musReturnEmptyWhenInexistentUser(){
-        /**
+        /*
          Mockito default behavior [no need for implementation]
          Mockito.when(userRepository.findUserByEmail("joao@gmail.com")).thenReturn(Optional.empty());
-        **/
+        */
 
         Optional<User> user = userService.findUserByEmail("joao@gmail.com");
         Assertions.assertTrue(user.isEmpty());
@@ -58,7 +58,7 @@ public class UserServiceTest {
         Assertions.assertTrue(user.isPresent());
         System.out.println(user);
 
-        /**
+        /*
          // Repetitions test
          Mockito.when(userRepository.findUserByEmail("joao@gmail.com"))
          .thenReturn(Optional.of(UserBuilder.getOneUser().build()), Optional.of(UserBuilder.getOneUser().build()), null);
@@ -72,7 +72,7 @@ public class UserServiceTest {
          Mockito.verify(userRepository, Mockito.atLeastOnce())).findUserByEmail("joao123@gmail.com");
          Mockito.verify(userRepository, Mockito.never()).findUserByEmail("zeNinguem@gmail.com");
          Mockito.verifyNoMoreInteractions(userRepository);
-        **/
+        */
     }
 
     @Test
@@ -85,10 +85,10 @@ public class UserServiceTest {
 
         Mockito.verify(userRepository).findUserByEmail(savingUser.getEmail());
 
-        /**
+        /*
          // Extra validation [high coupling!]
          Mockito.verify(userRepository).save(savingUser);
-        **/
+        */
     }
 
     @Test

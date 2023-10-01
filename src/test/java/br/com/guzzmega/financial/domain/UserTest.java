@@ -56,29 +56,33 @@ public class UserTest {
 		assertEquals(message, exception.getMessage());
 	}
 
-//	ALL SUBSTITUTED FOR mustRejectUserWithoutField()
-//@Test
-//@DisplayName("Must Reject a User Without Name")
-//public void mustRejectUserWithoutName(){
-//	ValidationException exception = assertThrows(ValidationException.class, () -> {
-//		UserBuilder.getOneUser().withName(null).build();
-//	});
-//	assertEquals("Name is mandatory", exception.getMessage());
-//}
-//	@Test
-//	@DisplayName("Must Reject a User Without Email")
-//	public void mustRejectUserWithoutEmail(){
-//		ValidationException exception = assertThrows(ValidationException.class, () -> {
-//			UserBuilder.getOneUser().withEmail(null).build();
-//		});
-//		assertEquals("Email is mandatory", exception.getMessage());
-//	}
-//	@Test
-//	@DisplayName("Must Reject a User Without Password")
-//	public void mustRejectUserWithoutPassword(){
-//		ValidationException exception = assertThrows(ValidationException.class, () -> {
-//			UserBuilder.getOneUser().withPassword(null).build();
-//		});
-//		assertEquals("Password is mandatory", exception.getMessage());
-//	}
+
+	/*
+	//ALL SUBSTITUTED FOR mustRejectUserWithoutField()
+	@Test
+	@DisplayName("Must Reject a User Without Name")
+	public void mustRejectUserWithoutName(){
+		ValidationException exception = assertThrows(ValidationException.class, () -> {
+			UserBuilder.getOneUser().withName(null).build();
+		});
+		assertEquals("Name is mandatory", exception.getMessage());
+	}
+
+	@Test
+	@DisplayName("Must Reject a User Without Email")
+	public void mustRejectUserWithoutEmail(){
+		ValidationException exception = assertThrows(ValidationException.class, () -> {
+			UserBuilder.getOneUser().withEmail(null).build();
+		});
+		assertEquals("Email is mandatory", exception.getMessage());
+	}
+	@Test
+	@DisplayName("Must Reject a User Without Password")
+	public void mustRejectUserWithoutPassword(){
+		ValidationException exception = assertThrows(ValidationException.class, () -> {
+			UserBuilder.getOneUser().withPassword(null).build();
+		});
+		assertEquals("Password is mandatory", exception.getMessage());
+	}
+	*/
 }

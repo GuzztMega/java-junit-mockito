@@ -43,7 +43,7 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account { id=" + id + ", name='" + name + "', user='" + user + "' }";
+        return "Account { id=" + id + ", name='" + name + "', user=\n\t" + user + "\n }";
     }
 
     public Long getId() {
