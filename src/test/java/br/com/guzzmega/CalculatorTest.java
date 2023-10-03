@@ -17,10 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class CalculadoraTest {
+public class CalculatorTest {
 
 	@Autowired
-	private Calculadora calc;
+	private Calculator calc;
 
 	private int contador = 0;          // inicia somente uma única vez
 	//private static int contador = 0; // inicia sempre em cada @Test
@@ -48,8 +48,8 @@ public class CalculadoraTest {
 	@Test
 	public void testSomar() {
 		System.out.println(++contador);
-		assertTrue(calc.soma(2, 3) == 5);
-		assertEquals(5, calc.soma(2, 3));
+		assertTrue(calc.sum(2, 3) == 5);
+		assertEquals(5, calc.sum(2, 3));
 	}
 
 	@Test
@@ -76,28 +76,28 @@ public class CalculadoraTest {
 	@Test
 	public void deveRetornarNumeroInteiroNaDivisao() {
 		System.out.println(++contador);
-		float resultado = calc.dividir(6, 2);
+		float resultado = calc.divide(6, 2);
 		assertEquals(3, resultado);
 	}
 
 	@Test
 	public void deveRetornarNumeroNegativoNaDivisao() {
 		System.out.println(++contador);
-		float resultado = calc.dividir(6, -2);
+		float resultado = calc.divide(6, -2);
 		assertEquals(-3, resultado);
 	}
 
 	@Test
 	public void deveRetornarNumeroDecimalNaDivisao() {
 		System.out.println(++contador);
-		float resultado = calc.dividir(10, 3);
+		float resultado = calc.divide(10, 3);
 		assertEquals(3.3333332538604736, resultado);
 		assertEquals(3.33, resultado, 0.01);
 	}
 
 	@Test
 	public void deveRetornarZeroComNumeradorZeroNaDivisao() {
-		float resultado = calc.dividir(0, 2);
+		float resultado = calc.divide(0, 2);
 		assertEquals(0, resultado);
 	}
 
@@ -130,7 +130,7 @@ public class CalculadoraTest {
 	}, delimiter = ';')
 	public void deveDividirCorretamente(int num, int den, float res){
 		System.out.println(++contador);
-		float resultado = calc.dividir(num, den);
+		float resultado = calc.divide(num, den);
 		assertEquals(res,resultado);
 	}
 }

@@ -3,13 +3,13 @@ package br.com.guzzmega;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Calculadora {
+public class Calculator {
 
-	public int soma(int a, int b) {
+	public int sum(int a, int b) {
 		return a + b;
 	}
 	
-	public float dividir(int num, int den) {
+	public float divide(int num, int den) {
 		return (float) num / den;
 	}
 }

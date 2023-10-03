@@ -3,16 +3,22 @@ package br.com.guzzmega.financial.service;
 import br.com.guzzmega.financial.domain.Transaction;
 import br.com.guzzmega.financial.exception.ValidationException;
 import br.com.guzzmega.financial.repository.TransactionDAO;
-
-import java.time.LocalDateTime;
+import br.com.guzzmega.financial.service.external.ClockService;
 
 public class TransactionService {
 
-    TransactionDAO transactionDAO;
+    private TransactionDAO transactionDAO;
+    private ClockService clockService;
 
     public Transaction save(Transaction transaction){
-        if(LocalDateTime.now().getHour() > 16) return null;
+        if(clockService.getCurrentTime().getHour() > 16)
+            throw new RuntimeException("Business hours closed. Try again tomorrow.");
 
+        validateAttributes(transaction);
+        return transactionDAO.save(transaction);
+    }
+
+    private void validateAttributes(Transaction transaction) {
         if(transaction.getDescription() == null){
             throw new ValidationException("Description is mandatory.");
         }
@@ -28,7 +34,5 @@ public class TransactionService {
         if(transaction.getStatus() == null){
             throw new ValidationException("Status is mandatory.");
         }
-
-        return transactionDAO.save(transaction);
     }
 }
