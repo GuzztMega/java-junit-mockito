@@ -5,6 +5,7 @@ import br.com.guzzmega.financial.domain.builders.UserBuilder;
 import br.com.guzzmega.financial.exception.ValidationException;
 import br.com.guzzmega.financial.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -14,6 +15,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
+@Tag("service")
+@Tag("user")
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
 

@@ -5,6 +5,7 @@ import br.com.guzzmega.financial.domain.builders.TransactionBuilder;
 import br.com.guzzmega.financial.repository.TransactionDAO;
 import br.com.guzzmega.financial.service.external.ClockService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
@@ -17,6 +18,8 @@ import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Tag("service")
+@Tag("transaction")
 //@EnabledIf(value = "isValidTime")
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)

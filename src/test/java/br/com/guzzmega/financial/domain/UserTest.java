@@ -8,6 +8,8 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Tag("domain")
+@Tag("user")
 @DisplayName("Domain: User")
 public class UserTest {
 

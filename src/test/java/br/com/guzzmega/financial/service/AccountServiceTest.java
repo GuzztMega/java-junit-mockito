@@ -6,6 +6,7 @@ import br.com.guzzmega.financial.exception.ValidationException;
 import br.com.guzzmega.financial.repository.AccountRepository;
 import br.com.guzzmega.financial.service.external.AccountEvent;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -15,6 +16,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 
+@Tag("service")
+@Tag("account")
 @ExtendWith(MockitoExtension.class)
 //@MockitoSettings(strictness = Strictness.LENIENT) // Ignores unnecessary stubbings
 public class AccountServiceTest {
